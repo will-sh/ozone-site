@@ -429,6 +429,9 @@ s=d.getElementsByTagName('script')[0];
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ozone admin datanode decommission <span style="color:#f92672">[</span>-hV<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-id<span style="color:#f92672">=</span>&lt;scmServiceId&gt;<span style="color:#f92672">]</span>
        <span style="color:#f92672">[</span>--scm<span style="color:#f92672">=</span>&lt;scm&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;hosts&gt;...<span style="color:#f92672">]</span>
 </code></pre></div><p>您可以输入多个主机，以便一起Decommission多个DataNode。</p>
+<p>查看 Decommission时datanode 的状态，可以执行下面的命令,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ozone admin datanode status decommission <span style="color:#f92672">[</span>-hV<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-id<span style="color:#f92672">=</span>&lt;scmServiceId&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--scm<span style="color:#f92672">=</span>&lt;scm&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--id<span style="color:#f92672">=</span>&lt;uuid&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--ip<span style="color:#f92672">=</span>&lt;ipAddress&gt;<span style="color:#f92672">]</span>
+</code></pre></div><p>您可以指定一个 Datanode 的 IP address 或 UUID 以查看该 Datanode 相关的详细信息。</p>
 <p><strong>Note:</strong> 要Recommission某台DataNode的时候，可在命令行执行以下命令,</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ozone admin datanode recommission <span style="color:#f92672">[</span>-hV<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-id<span style="color:#f92672">=</span>&lt;scmServiceId&gt;<span style="color:#f92672">]</span>
        <span style="color:#f92672">[</span>--scm<span style="color:#f92672">=</span>&lt;scm&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;hosts&gt;...<span style="color:#f92672">]</span>
@@ -475,7 +478,7 @@ s=d.getElementsByTagName('script')[0];
 <footer class="footer">
   <div class="container">
     <span class="small text-muted">
-      Version: 1.5.0-SNAPSHOT, Last Modified: March 4, 2024 <a class="hide-child link primary-color" href="https://github.com/apache/ozone/commit/650e77753b50fa4cc52f097be28416f888006635">650e777</a>
+      Version: 1.5.0-SNAPSHOT, Last Modified: March 5, 2024 <a class="hide-child link primary-color" href="https://github.com/apache/ozone/commit/f16b1affebf6effac727ea0b1e8b9bcd338f73ff">f16b1af</a>
     </span>
   </div>
 </footer>
