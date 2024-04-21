@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>/concept/overview.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>/interface/ofs.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -42,7 +42,7 @@
                 />
   </url><url>
     <loc>/feature/decommission.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -55,7 +55,7 @@
                 />
   </url><url>
     <loc>/start.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -68,7 +68,7 @@
                 />
   </url><url>
     <loc>/feature/om-ha.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -81,7 +81,7 @@
                 />
   </url><url>
     <loc>/feature/erasurecoding.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -94,10 +94,10 @@
                 />
   </url><url>
     <loc>/feature/snapshot.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/feature/scm-ha.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -110,7 +110,7 @@
                 />
   </url><url>
     <loc>/security/secureozone.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -123,10 +123,10 @@
                 />
   </url><url>
     <loc>/feature/streaming-write-pipeline.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/interface/o3fs.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -139,7 +139,7 @@
                 />
   </url><url>
     <loc>/concept/ozonemanager.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -152,7 +152,7 @@
                 />
   </url><url>
     <loc>/feature/dn-merge-rocksdb.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -165,7 +165,7 @@
                 />
   </url><url>
     <loc>/feature/prefixfso.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -178,7 +178,7 @@
                 />
   </url><url>
     <loc>/feature/topology.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -191,7 +191,7 @@
                 />
   </url><url>
     <loc>/security/securingtde.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -204,7 +204,7 @@
                 />
   </url><url>
     <loc>/concept.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -217,7 +217,7 @@
                 />
   </url><url>
     <loc>/concept/storagecontainermanager.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -230,7 +230,7 @@
                 />
   </url><url>
     <loc>/security/gdpr.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -243,7 +243,7 @@
                 />
   </url><url>
     <loc>/interface/s3.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -256,7 +256,7 @@
                 />
   </url><url>
     <loc>/security/securingdatanodes.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -269,7 +269,7 @@
                 />
   </url><url>
     <loc>/interface/cli.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -282,7 +282,7 @@
                 />
   </url><url>
     <loc>/feature.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -295,7 +295,7 @@
                 />
   </url><url>
     <loc>/feature/quota.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -308,7 +308,7 @@
                 />
   </url><url>
     <loc>/interface/reconapi.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -321,10 +321,10 @@
                 />
   </url><url>
     <loc>/security/securingozonehttp.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/interface/javaapi.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -337,7 +337,7 @@
                 />
   </url><url>
     <loc>/concept/containers.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -350,7 +350,7 @@
                 />
   </url><url>
     <loc>/security/securings3.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -363,7 +363,7 @@
                 />
   </url><url>
     <loc>/security.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -376,7 +376,7 @@
                 />
   </url><url>
     <loc>/interface/csi.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -389,7 +389,7 @@
                 />
   </url><url>
     <loc>/security/securityacls.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -402,7 +402,7 @@
                 />
   </url><url>
     <loc>/concept/datanodes.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -415,7 +415,7 @@
                 />
   </url><url>
     <loc>/security/securitywithranger.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -428,10 +428,10 @@
                 />
   </url><url>
     <loc>/interface/httpfs.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/feature/recon.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -444,7 +444,7 @@
                 />
   </url><url>
     <loc>/concept/recon.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -457,7 +457,7 @@
                 />
   </url><url>
     <loc>/feature/observability.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -470,7 +470,7 @@
                 />
   </url><url>
     <loc>/recipe.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -483,13 +483,13 @@
                 />
   </url><url>
     <loc>/feature/nonrolling-upgrade.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/feature/s3-multi-tenancy.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/start/startfromdockerhub.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -502,7 +502,7 @@
                 />
   </url><url>
     <loc>/feature/reconfigurability.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -515,16 +515,16 @@
                 />
   </url><url>
     <loc>/feature/s3-multi-tenancy-setup.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/feature/s3-tenant-commands.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/feature/s3-multi-tenancy-access-control.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/start/onprem.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -537,7 +537,7 @@
                 />
   </url><url>
     <loc>/start/minikube.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -550,7 +550,7 @@
                 />
   </url><url>
     <loc>/start/kubernetes.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -563,7 +563,7 @@
                 />
   </url><url>
     <loc>/start/runningviadocker.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -576,7 +576,7 @@
                 />
   </url><url>
     <loc>/start/fromsource.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -589,97 +589,97 @@
                 />
   </url><url>
     <loc>/design.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/symmetric-token-signatures.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/secure-s3.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/httpfs.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/tools/logsinozone.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/dn-merge-rocksdb.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/namespace-support.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/nonrolling-upgrade.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/omprepare.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/upgrade-dev-primer.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/s3-performance.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/ec.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/ofs.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/storage-class.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/volume-management.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/nfs.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/tools/admin.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/scmha.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/token.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/trash.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/recon2.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/decommissioning.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/gdpr.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/locks.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/ozone-enhancement-proposals.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/configless.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/multiraft.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/typesafeconfig.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/recon1.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/tde.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/tools/genconf.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -692,7 +692,7 @@
                 />
   </url><url>
     <loc>/tools/auditparser.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -705,16 +705,16 @@
                 />
   </url><url>
     <loc>/design/topology.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/s3gateway.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/design/omha.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/tools.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -727,10 +727,10 @@
                 />
   </url><url>
     <loc>/feature/faircallqueue.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/interface.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -743,10 +743,10 @@
                 />
   </url><url>
     <loc>/interface/swaggerreconapi.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
   </url><url>
     <loc>/recipe/botoclient.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -759,7 +759,7 @@
                 />
   </url><url>
     <loc>/recipe/prometheus.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -772,7 +772,7 @@
                 />
   </url><url>
     <loc>/recipe/sparkozonefsk8s.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -785,7 +785,7 @@
                 />
   </url><url>
     <loc>/tools/testtools.html</loc>
-    <lastmod>2024-04-20T13:58:23+02:00</lastmod>
+    <lastmod>2024-04-21T08:33:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
