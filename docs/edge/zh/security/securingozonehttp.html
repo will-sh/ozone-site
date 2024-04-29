@@ -147,7 +147,7 @@ s=d.getElementsByTagName('script')[0];
                            
                         </li>
                     
-                        <li class="active">
+                        <li class="">
                            
                            <a href="../../zh/concept/recon.html">Recon</a>
                            
@@ -261,7 +261,7 @@ s=d.getElementsByTagName('script')[0];
                            
                         </li>
                     
-                        <li class="">
+                        <li class="active">
                            
                            <a href="../../zh/security/securingozonehttp.html">安全化 HTTP</a>
                            
@@ -398,8 +398,8 @@ s=d.getElementsByTagName('script')[0];
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="../../zh/index.html">Home</a></li>
-                  <li class="breadcrumb-item" aria-current="page"><a href="../../zh/concept.html">概念</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Recon</li>
+                  <li class="breadcrumb-item" aria-current="page"><a href="../../zh/security.html">安全</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">安全化 HTTP</li>
                 </ol>
               </nav>
 
@@ -409,7 +409,7 @@ s=d.getElementsByTagName('script')[0];
     
     
     
-    <a href="../../concept/recon.html"><span class="label label-success">English</span></a>
+    <a href="../../security/securingozonehttp.html"><span class="label label-success">English</span></a>
     
     
     
@@ -418,7 +418,7 @@ s=d.getElementsByTagName('script')[0];
 
 
           <div class="col-md-9">
-            <h1>Recon</h1>
+            <h1>安全化 HTTP</h1>
 
             <!---
   Licensed to the Apache Software Foundation (ASF) under one or more
@@ -436,162 +436,274 @@ s=d.getElementsByTagName('script')[0];
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<p>Recon 充当 Ozone 的管理和监视控制台。它提供了 Ozone 的鸟瞰图，并通过基于 REST 的 API 和丰富的网页用户界面（Web UI）展示了集群的当前状态，从而帮助用户解决任何问题。</p>
-<h2 id="高层次设计">高层次设计</h2>
-<figure><img src="../../concept/ReconHighLevelDesign.png" width="800px"/>
-</figure>
-
-<br/>
-<p>在较高的层次上，Recon 收集和汇总来自 Ozone Manager（OM）、Storage Container Manager（SCM）和数据节点（DN）的元数据，并充当中央管理和监视控制台。Ozone 管理员可以使用 Recon 查询系统的当前状态，而不会使 OM  或 SCM 过载。</p>
-<p>Recon 维护多个数据库，以支持批处理，更快的查询和持久化聚合信息。它维护 OM DB 和 SCM DB 的本地副本，以及用于持久存储聚合信息的 SQL 数据库。</p>
-<p>Recon 还与 Prometheus 集成，提供一个 HTTP 端点来查询 Prometheus 的 Ozone 指标，并在网页用户界面（Web UI）中显示一些关键时间点的指标。</p>
-<h2 id="recon-和-ozone-manager">Recon 和 Ozone Manager</h2>
-<figure><img src="../../concept/ReconOmDesign.png" width="800px"/>
-</figure>
-
-<br/>
-<p>Recon 最初从领导者 OM 的 HTTP 端点获取 OM rocks DB 的完整快照，解压缩文件并初始化 RocksDB 以进行本地查询。通过对最后一个应用的序列 ID 的 RPC 调用，定期请求领导者 OM 进行增量更新，从而使数据库保持同步。如果由于某种原因而无法检索增量更新或将其应用于本地数据库，则会再次请求一个完整快照以使本地数据库与 OM DB 保持同步。因此，Recon 可能会显示陈旧的信息，因为本地数据库不会总是同步的。</p>
-<h2 id="recon-和-storage-container-manager">Recon 和 Storage Container Manager</h2>
-<figure><img src="../../concept/ReconScmDesign.png" width="800px"/>
-</figure>
-
-<br/>
-<p>Recon 还充当数据节点的被动 SCM。在集群中配置 Recon 时，所有数据节点都向 Recon 注册，并像 SCM 一样向 Recon 发送心跳、容器报告、增量容器报告等。Recon 使用它从数据节点得到的所有信息在本地构建自己的 SCM rocks DB 副本。Recon 从不向数据节点发送任何命令作为响应，而只是充当被动 SCM 以更快地查找 SCM 元数据。</p>
-<h2 id="a-nametask-frameworka-任务框架"><a name="task-framework"></a> 任务框架</h2>
-<p>Recon 有其自己的任务框架，可对从 OM 和 SCM 获得的数据进行批处理。一个任务可以在 OM DB 或 SCM DB 上监听和操作数据库事件，如<code>PUT</code>、<code>DELETE</code>、<code>UPDATE</code>等。在此基础上，任务实现<code>org.apache.hadoop.ozone.recon.tasks.ReconOmTask</code>或者扩展<code>org.apache.hadoop.ozone.recon.scm.ReconScmTask</code>。</p>
-<p><code>ReconOmTask</code>的一个示例是<code>ContainerKeyMapperTask</code>，它在 RocksDB 中持久化保留了容器 -&gt; 键映射。当容器被报告丢失或处于不健康的运行状态时，这有助于了解哪些键是容器的一部分。另一个示例是<code>FileSizeCountTask</code>，它跟踪 SQL 数据库中给定文件大小范围内的文件计数。这些任务有两种情况的实现：</p>
-<ul>
-<li>完整快照（reprocess()）</li>
-<li>增量更新（process()）</li>
-</ul>
-<p>当从领导者 OM 获得 OM DB 的完整快照时，将对所有注册的 OM 任务调用 reprocess()。在随后的增量更新中，将在这些 OM 任务上调用 process()。</p>
-<p><code>ReconScmTask</code>的示例是<code>ContainerHealthTask</code>，它以可配置的时间间隔运行，扫描所有容器的列表，并将不健康容器的状态（<code>MISSING</code>、<code>MIS_REPLICATED</code>、<code>UNDER_REPLICATED</code>、<code>OVER_REPLICATED</code>）持久化保留在 SQL 表中。此信息用于确定集群中是否有丢失的容器。</p>
-<h2 id="recon-和-prometheus">Recon 和 Prometheus</h2>
-<p>Recon 可以与任何配置为收集指标的 Prometheus 实例集成，并且可以在数据节点和 Pipelines 页面的 Recon UI 中显示有用的信息。Recon 还公开了一个代理端点 (<a href="../../zh/interface/reconapi.html#metrics">/指标</a>) 来查询 Prometheus。可以通过将此配置<code>ozone.recon.prometheus.http.endpoint</code>设置为 Prometheus 端点如<code>ozone.recon.prometheus.http.endpoint=http://prometheus:9090</code>来启用此集成。</p>
-<h2 id="api-参考">API 参考</h2>
-<p><a href="../../zh/interface/reconapi.html">链接到完整的 API 参考</a></p>
-<h2 id="持久化状态">持久化状态</h2>
-<ul>
-<li><a href="../../zh/concept/ozonemanager.html#持久化状态">OM database</a>的本地副本</li>
-<li><a href="../../zh/concept/storagecontainermanager.html#持久化状态">SCM database</a>的本地副本</li>
-<li>以下数据在 Recon 中持久化在指定的 RocksDB 目录下：
-<ul>
-<li>ContainerKey 表
-<ul>
-<li>存储映射（容器，键） -&gt; 计数</li>
-</ul>
-</li>
-<li>ContainerKeyCount 表
-<ul>
-<li>存储容器 ID  -&gt; 容器内的键数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>以下数据存储在已配置的 SQL 数据库中（默认为 Derby ）：
-<ul>
-<li>GlobalStats 表
-<ul>
-<li>一个键 -&gt; Value table 用于存储集群中出现的卷/桶/键的总数等聚合信息</li>
-</ul>
-</li>
-<li>FileCountBySize 表
-<ul>
-<li>跟踪集群中文件大小范围内的文件数量</li>
-</ul>
-</li>
-<li>ReconTaskStatus 表
-<ul>
-<li>跟踪在<a href="#task-framework">Recon 任务框架</a>中已注册的 OM 和 SCM DB 任务的状态和最后运行时间戳</li>
-</ul>
-</li>
-<li>ContainerHistory 表
-<ul>
-<li>存储容器副本 -&gt; 具有最新已知时间戳记的数据节点映射。当一个容器被报告丢失时，它被用来确定最后已知的数据节点。</li>
-</ul>
-</li>
-<li>UnhealthyContainers 表
-<ul>
-<li>随时跟踪集群中所有不健康的容器（MISSING、UNDER_REPLICATED、OVER_REPLICATED、MIS_REPLICATED）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="需要关注的配置项">需要关注的配置项</h2>
+<p>本文档介绍了如何配置 Ozone HTTP Web 控制台以要求用户身份验证。</p>
+<h3 id="默认身份验证">默认身份验证</h3>
+<p>默认情况下 Ozone HTTP Web 控制台 (OM、SCM、S3G、Recon、Datanode) 根据以下默认配置允许无需身份验证的访问。</p>
 <table>
 <thead>
 <tr>
-<th>配置项</th>
-<th>默认值</th>
-<th><div style="width:300px;">描述</div></th>
+<th>参数</th>
+<th>值</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>ozone.recon.http-address</td>
-<td>0.0.0.0:9888</td>
-<td>Recon web UI 监听的地址和基本端口。</td>
+<td>ozone.security.http.kerberos.enabled</td>
+<td>false</td>
 </tr>
 <tr>
-<td>ozone.recon.address</td>
-<td>0.0.0.0:9891</td>
-<td>Recon 的 RPC 地址。</td>
-</tr>
-<tr>
-<td>ozone.recon.db.dir</td>
-<td>none</td>
-<td>Recon Server 存储其元数据的目录。</td>
-</tr>
-<tr>
-<td>ozone.recon.om.db.dir</td>
-<td>none</td>
-<td>Recon Server 存储其 OM 快照 DB 的目录。</td>
-</tr>
-<tr>
-<td>ozone.recon.om.snapshot<br>.task.interval.delay</td>
-<td>10m</td>
-<td>Recon 以分钟间隔请求 OM DB 快照。</td>
-</tr>
-<tr>
-<td>ozone.recon.task<br>.missingcontainer.interval</td>
-<td>300s</td>
-<td>定期检查集群中不健康容器的时间间隔。</td>
-</tr>
-<tr>
-<td>ozone.recon.task<br>.safemode.wait.threshold</td>
-<td>300s</td>
-<td>Recon退出safe mode需要等待的最大时间。</td>
-</tr>
-<tr>
-<td>ozone.recon.sql.db.jooq.dialect</td>
-<td>DERBY</td>
-<td>请参考 <a href="https://www.jooq.org/javadoc/latest/org.jooq/org/jooq/SQLDialect.html">SQL 方言</a> 来指定不同的方言。</td>
-</tr>
-<tr>
-<td>ozone.recon.sql.db.jdbc.url</td>
-<td>jdbc:derby:${ozone.recon.db.dir}<br>/ozone_recon_derby.db</td>
-<td>Recon SQL database 的 jdbc url。</td>
-</tr>
-<tr>
-<td>ozone.recon.sql.db.username</td>
-<td>none</td>
-<td>Recon SQL数据库的用户名。</td>
-</tr>
-<tr>
-<td>ozone.recon.sql.db.password</td>
-<td>none</td>
-<td>Recon SQL数据库的密码。</td>
-</tr>
-<tr>
-<td>ozone.recon.sql.db.driver</td>
-<td>org.apache.derby.jdbc<br>.EmbeddedDriver</td>
-<td>Recon SQL数据库的 jdbc driver。</td>
+<td>ozone.http.filter.initializers</td>
+<td><empty></td>
 </tr>
 </tbody>
 </table>
+<p>如果您有一个启用了 SPNEGO 的 Ozone 集群,并且想要为所有 Ozone 服务禁用它,只需确保按上述两个参数配置即可。</p>
+<h3 id="基于-kerberos-的-spnego-身份验证">基于 Kerberos 的 SPNEGO 身份验证</h3>
+<p>身份验证也可以配置为要求使用 HTTP SPNEGO 协议（被 Firefox 和 Chrome 等浏览器所支持）。为了实现这一点，必须先配置以下参数。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hadoop.security.authentication</td>
+<td>kerberos</td>
+</tr>
+<tr>
+<td>ozone.security.http.kerberos.enabled</td>
+<td>true</td>
+</tr>
+<tr>
+<td>ozone.http.filter.initializers</td>
+<td>org.apache.hadoop.security.AuthenticationFilterInitializer</td>
+</tr>
+</tbody>
+</table>
+<p>之后，各个组件需要正确配置才能完全启用 SPNEGO 或 SIMPLE 身份验证。</p>
+<h3 id="为-om-http-启用-spnego-身份验证">为 OM HTTP 启用 SPNEGO 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ozone.om.http.auth.type</td>
+<td>kerberos</td>
+</tr>
+<tr>
+<td>ozone.om.http.auth.kerberos.principal</td>
+<td>HTTP/_HOST@REALM</td>
+</tr>
+<tr>
+<td>ozone.om.http.auth.kerberos.keytab</td>
+<td>/path/to/HTTP.keytab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="为-s3g-http-启用-spnego-身份验证">为 S3G HTTP 启用 SPNEGO 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ozone.s3g.http.auth.type</td>
+<td>kerberos</td>
+</tr>
+<tr>
+<td>ozone.s3g.http.auth.kerberos.principal</td>
+<td>HTTP/_HOST@REALM</td>
+</tr>
+<tr>
+<td>ozone.s3g.http.auth.kerberos.keytab</td>
+<td>/path/to/HTTP.keytab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="为-recon-http-启用-spnego-身份验证">为 RECON HTTP 启用 SPNEGO 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ozone.recon.http.auth.type</td>
+<td>kerberos</td>
+</tr>
+<tr>
+<td>ozone.recon.http.auth.kerberos.principal</td>
+<td>HTTP/_HOST@REALM</td>
+</tr>
+<tr>
+<td>ozone.recon.http.auth.kerberos.keytab</td>
+<td>/path/to/HTTP.keytab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="为-scm-http-启用-spnego-身份验证">为 SCM HTTP 启用 SPNEGO 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hdds.scm.http.auth.type</td>
+<td>kerberos</td>
+</tr>
+<tr>
+<td>hdds.scm.http.auth.kerberos.principal</td>
+<td>HTTP/_HOST@REALM</td>
+</tr>
+<tr>
+<td>hdds.scm.http.auth.kerberos.keytab</td>
+<td>/path/to/HTTP.keytab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="为-datanode-http-启用-spnego-身份验证">为 DATANODE HTTP 启用 SPNEGO 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hdds.datanode.http.auth.type</td>
+<td>kerberos</td>
+</tr>
+<tr>
+<td>hdds.datanode.http.auth.kerberos.principal</td>
+<td>HTTP/_HOST@REALM</td>
+</tr>
+<tr>
+<td>hdds.datanode.http.auth.kerberos.keytab</td>
+<td>/path/to/HTTP.keytab</td>
+</tr>
+</tbody>
+</table>
+<p>注意： Ozone datanode 没有默认网页，这会阻止您访问“/”或“/index.html”。但它通过 HTTP 提供了标准 Java Servlet，如 jmx/conf/jstack。</p>
+<p>此外，Ozone HTTP Web 控制台支持相当于 Hadoop 的 Pseudo/Simple 身份验证。 如果启用此选项，则必须在第一次与浏览器交互中使用 user.name 指定用户名查询字符串参数。例如，http://scm:9876/?user.name=scmadmin。</p>
+<h3 id="为-om-http-启用-simple-身份验证">为 OM HTTP 启用 SIMPLE 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ozone.om.http.auth.type</td>
+<td>simple</td>
+</tr>
+<tr>
+<td>ozone.om.http.auth.simple.anonymous.allowed</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>如果您不想在查询字符串参数中指定 user.name，更改 ozone.om.http.auth.simple.anonymous.allowed 为 true。</p>
+<h3 id="为-s3g-http-启用-simple-身份验证">为 S3G HTTP 启用 SIMPLE 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ozone.s3g.http.auth.type</td>
+<td>simple</td>
+</tr>
+<tr>
+<td>ozone.s3g.http.auth.simple.anonymous.allowed</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>如果您不想在查询字符串参数中指定 user.name，更改 ozone.s3g.http.auth.simple.anonymous.allowed 为 true。</p>
+<h3 id="为-recon-http-启用-simple-身份验证">为 RECON HTTP 启用 SIMPLE 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ozone.recon.http.auth.type</td>
+<td>simple</td>
+</tr>
+<tr>
+<td>ozone.recon.http.auth.simple.anonymous.allowed</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>如果您不想在查询字符串参数中指定 user.name，更改 ozone.recon.http.auth.simple.anonymous.allowed 为 true。</p>
+<h3 id="为-scm-http-启用-simple-身份验证">为 SCM HTTP 启用 SIMPLE 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hdds.scm.http.auth.type</td>
+<td>simple</td>
+</tr>
+<tr>
+<td>hdds.scm.http.auth.simple.anonymous.allowed</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>如果您不想在查询字符串参数中指定 user.name，更改 hdds.scm.http.auth.simple.anonymous.allowed 为 true。</p>
+<h3 id="为-datanode-http-启用-simple-身份验证">为 DATANODE HTTP 启用 SIMPLE 身份验证</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hdds.datanode.http.auth.type</td>
+<td>simple</td>
+</tr>
+<tr>
+<td>hdds.datanode.http.auth.simple.anonymous.allowed</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>如果您不想在查询字符串参数中指定 user.name，更改 hdds.datanode.http.auth.simple.anonymous.allowed 为 true。</p>
 
 
+          
+          <a class="btn  btn-success btn-lg" href="../../zh/security/securings3.html">Next >></a>
           
           </div>
 
