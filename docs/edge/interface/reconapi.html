@@ -1255,6 +1255,30 @@ If <code>volume</code> is specified, it returns only the buckets under <code>vol
         <span style="color:#960050;background-color:#1e0010">...</span>
         ]
      }
+</code></pre></div><h3 id="put-apiv1datanodesremove">PUT /api/v1/datanodes/remove</h3>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>uuids (List of node uuids in JSON array format).</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  <span style="color:#e6db74">&#34;50ca4c95-2ef3-4430-b944-97d2442c3daf&#34;</span>
+]  
+</code></pre></div><p><strong>Returns</strong></p>
+<p>Returns the list of datanodes which are removed successfully and list of datanodes which were not found.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;removedNodes&#34;</span>: {
+    <span style="color:#f92672">&#34;totalCount&#34;</span>: <span style="color:#ae81ff">1</span>,
+    <span style="color:#f92672">&#34;datanodes&#34;</span>: [
+      {
+        <span style="color:#f92672">&#34;uuid&#34;</span>: <span style="color:#e6db74">&#34;50ca4c95-2ef3-4430-b944-97d2442c3daf&#34;</span>,
+        <span style="color:#f92672">&#34;hostname&#34;</span>: <span style="color:#e6db74">&#34;ozone-datanode-4.ozone_default&#34;</span>,
+        <span style="color:#f92672">&#34;state&#34;</span>: <span style="color:#e6db74">&#34;DEAD&#34;</span>,
+        <span style="color:#f92672">&#34;pipelines&#34;</span>: <span style="color:#66d9ef">null</span>
+      }
+    ],
+    <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Success&#34;</span>
+  }
+}     
 </code></pre></div><h2 id="pipelines">Pipelines</h2>
 <h3 id="get-apiv1pipelines">GET /api/v1/pipelines</h3>
 <p><strong>Parameters</strong></p>
@@ -1382,7 +1406,7 @@ Example: /api/v1/metrics/query?query=ratis_leader_election_electionCount</p>
 <footer class="footer">
   <div class="container">
     <span class="small text-muted">
-      Version: 1.5.0-SNAPSHOT, Last Modified: April 29, 2024 <a class="hide-child link primary-color" href="https://github.com/apache/ozone/commit/fdd203770e5010d2f6344f98b54abd03e2312d9b">fdd2037</a>
+      Version: 1.5.0-SNAPSHOT, Last Modified: April 30, 2024 <a class="hide-child link primary-color" href="https://github.com/apache/ozone/commit/fe1b5b63353819acf393398b64ab4152c7e8d51f">fe1b5b6</a>
     </span>
   </div>
 </footer>
