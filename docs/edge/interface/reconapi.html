@@ -478,8 +478,9 @@ s=d.getElementsByTagName('script')[0];
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<p>The Recon API v1 is a set of HTTP endpoints that help you understand the current
-state of an Ozone cluster and to troubleshoot if needed.</p>
+<p>The Recon API v1 offers a collection of HTTP endpoints designed to provide insights into the current state of an Ozone cluster,
+facilitating monitoring, management, and troubleshooting. These endpoints allow administrators to access critical cluster
+metadata, container status, key management, and more.</p>
 <p>Endpoints that are marked as <em>admin only</em> can only be accessed by Kerberos users
 specified in the <strong>ozone.administrators</strong> or <strong>ozone.recon.administrators</strong>
 configurations of a secure cluster. See <a href="../security/secureozone.html">Securing Ozone</a> for more information.
@@ -506,7 +507,7 @@ To restrict access to these endpoints, set the following configurations:</p>
 </tr>
 </tbody>
 </table>
-<p>Checkout an interactive version of the API powered by Swagger <a href="../interface/swaggerreconapi.html">here</a></p>
+<p>Access an interactive version of the API, complete with detailed descriptions and example requests, powered by Swagger <a href="../interface/swaggerreconapi.html">here</a></p>
 <h2 id="containers-admin-only">Containers (admin only)</h2>
 <h3 id="get-apiv1containers">GET /api/v1/containers</h3>
 <p><strong>Parameters</strong></p>
@@ -1357,6 +1358,23 @@ response object being the upper cap for file size range.</p>
      	<span style="color:#f92672">&#34;fileSize&#34;</span>: <span style="color:#ae81ff">1024</span>,
      	<span style="color:#f92672">&#34;count&#34;</span>: <span style="color:#ae81ff">2</span>
      }]
+</code></pre></div><h3 id="get-apiv1utilizationcontainercount">GET /api/v1/utilization/containerCount</h3>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p>containerSize (optional)</p>
+<p>Filters the results based on the given container size. The smallest container size being tracked for count is 512 MB (512000000 bytes).</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Returns the container counts within different container size ranges, with <code>containerSize</code> representing the size range and <code>count</code> representing the number of containers within that range.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">    [{
+      <span style="color:#f92672">&#34;containerSize&#34;</span>: <span style="color:#ae81ff">2147483648</span>,
+      <span style="color:#f92672">&#34;count&#34;</span>: <span style="color:#ae81ff">9</span>
+    }, {
+      <span style="color:#f92672">&#34;containerSize&#34;</span>: <span style="color:#ae81ff">1073741824</span>,
+      <span style="color:#f92672">&#34;count&#34;</span>: <span style="color:#ae81ff">3</span>
+    }]
 </code></pre></div><h2 id="metrics">Metrics</h2>
 <h3 id="get-apiv1metricsapi">GET /api/v1/metrics/:api</h3>
 <p><strong>Parameters</strong></p>
@@ -1406,7 +1424,7 @@ Example: /api/v1/metrics/query?query=ratis_leader_election_electionCount</p>
 <footer class="footer">
   <div class="container">
     <span class="small text-muted">
-      Version: 1.5.0-SNAPSHOT, Last Modified: August 10, 2024 <a class="hide-child link primary-color" href="https://github.com/apache/ozone/commit/462fa71c199dc95c1cf1dadd4e217cc3e33a6497">462fa71</a>
+      Version: 1.5.0-SNAPSHOT, Last Modified: August 12, 2024 <a class="hide-child link primary-color" href="https://github.com/apache/ozone/commit/609b17864297ee9594c2346f697c5ae1f171a72d">609b178</a>
     </span>
   </div>
 </footer>
